@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recycleit/screens/LoginForm.dart';
-import '../widgets/textfield.dart'; // Importing the reusable text field
-import '../widgets/LoginButton.dart'; // Importing the reusable button
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -9,39 +6,84 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sign Up')),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(
-              child: Text(
-                'Sign Up',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
+            const Text(
+              'Register',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 30),
+            const Text('Enter your name'),
+            const SizedBox(height: 5),
+            TextField(
+              decoration: InputDecoration(
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+            const SizedBox(height: 15),
+            const Text('Enter your mobile number'),
+            const SizedBox(height: 5),
+            TextField(
+              decoration: InputDecoration(
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+            const SizedBox(height: 15),
+            const Text('Enter your email'),
+            const SizedBox(height: 5),
+            TextField(
+              decoration: InputDecoration(
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+            const SizedBox(height: 15),
+            const Text('Enter your password'),
+            const SizedBox(height: 5),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green.shade600,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 14),
+                child: Text(
+                  'Register',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
             ),
-            SizedBox(height: 40),
-            RoundedTextField(hintText: 'Full Name'),
-            SizedBox(height: 20),
-            RoundedTextField(hintText: 'Email'),
-            SizedBox(height: 20),
-            RoundedTextField(hintText: 'Password', obscureText: true),
-            SizedBox(height: 30),
-            LoginButton(
-              text: 'Sign Up',
-              onPressed: () {
-              },
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Already have an account?"),
+                TextButton(
+                  onPressed: () {
+                    // Going back to the LoginPage
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Back to Login'),
+                ),
+              ],
             ),
-            SizedBox(height: 20,),
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginForm()));
-              },
-              child: Center(child: Text("Already have an account? Log In")))
           ],
         ),
       ),
