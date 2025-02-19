@@ -28,7 +28,11 @@ class BottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
-            label: 'Rewards', // ✅ New Rewards Icon
+            label: 'Rewards', // 
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chat',
         ),
       ],
     );
