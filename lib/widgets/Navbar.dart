@@ -13,6 +13,7 @@ class BottomNavBar extends StatelessWidget {
       onTap: onTap,
       selectedItemColor: const Color.fromRGBO(76, 175, 80, 1), // Active tab color
       unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed, // Ensures all items are visible
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
@@ -27,8 +28,12 @@ class BottomNavBar extends StatelessWidget {
           label: 'Location',
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Rewards', // ✅ New Rewards Icon
+          icon: Icon(Icons.card_giftcard),
+          label: 'Rewards', // ✅ New Rewards Icon
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.chat),
+          label: 'Chat',
         ),
       ],
     );

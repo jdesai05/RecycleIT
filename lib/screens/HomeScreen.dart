@@ -4,6 +4,7 @@ import 'package:recycleit/widgets/LocationScreen.dart';
 import 'package:recycleit/widgets/SettingsScreen.dart';
 import 'package:recycleit/widgets/UserSideBar.dart';
 import 'package:recycleit/widgets/CameraWidget.dart';
+import 'package:recycleit/widgets/ChatBotWidget.dart';
 import 'Rewards.dart'; // ✅ Import RewardsScreen
 import '../widgets/Navbar.dart'; // Import your custom BottomNavBar widget
 
@@ -21,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     Home(),
     CameraWidget(),
     LeafletMapScreen(),
-    RewardsPage(), // ✅ Added Rewards Screen to the list
+    RewardsPage(),
+    ChatbotWidget(), // ✅ Added Rewards Screen to the list
   ];
 
   void _onNavBarTapped(int index) {

@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 class CouponsCard extends StatelessWidget {
   final String title;
   final String description;
+  final int price;
+  final VoidCallback onRedeem; // Callback function for redeeming
 
   const CouponsCard({
     Key? key,
     required this.title,
     required this.description,
+    required this.price,
+    required this.onRedeem,
   }) : super(key: key);
 
   @override
@@ -45,25 +49,20 @@ class CouponsCard extends StatelessWidget {
 
             const SizedBox(height: 8), // Spacing
 
-            // Redeem Button
+            // Redeem Button with Price
             SizedBox(
               width: double.infinity, // Button takes full width
               child: ElevatedButton(
-                onPressed: () {
-                  // Handle redeem action
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Coupon $title redeemed!')),
-                  );
-                },
+                onPressed: onRedeem, // Calls the redeem function
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: const Text(
-                  "Redeem",
-                  style: TextStyle(color: Colors.white),
+                child: Text(
+                  "Redeem for $price credits",
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
             ),
