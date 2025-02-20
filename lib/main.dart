@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'screens/LoginForm.dart'; // Import the login form screen
+import 'screens/LoginForm.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter is initialized first
+  await Firebase.initializeApp(); // Then initialize Firebase
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
