@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:recycleit/screens/HomeScreen.dart';
 import 'package:recycleit/screens/SignUp.dart';
-import '../widgets/textfield.dart';
-import '../widgets/LoginButton.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -59,43 +57,76 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(
-              child: Text(
-                'Login',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            const Text(
+              'Login',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 30),
+
+            // Email Field
+            const Text('Email'),
+            const SizedBox(height: 5),
+            TextField(
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               ),
             ),
-            SizedBox(height: 40),
-            RoundedTextField(
-              hintText: 'Email',
-              controller: emailController,
-            ),
-            SizedBox(height: 20),
-            RoundedTextField(
-              hintText: 'Password',
-              obscureText: true,
+            const SizedBox(height: 15),
+
+            // Password Field
+            const Text('Password'),
+            const SizedBox(height: 5),
+            TextField(
               controller: passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 20),
+
+            // Login Button
             isLoading
-                ? Center(child: CircularProgressIndicator()) // Show loading spinner
-                : LoginButton(
-                    text: 'Login',
+                ? Center(child: CircularProgressIndicator())
+                : ElevatedButton(
                     onPressed: _login,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green.shade600,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 14),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ),
                   ),
-            SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignUp()),
-                );
-              },
-              child: Center(child: Text("Don't have an account? Signup")),
+            const SizedBox(height: 20),
+
+            // Navigate to SignUp
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Don't have an account?"),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUp()),
+                    );
+                  },
+                  child: const Text('Sign Up'),
+                ),
+              ],
             ),
           ],
         ),

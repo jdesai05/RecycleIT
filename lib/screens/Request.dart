@@ -24,6 +24,13 @@ class _RequestPageState extends State<RequestPage> {
     }
   }
 
+  void _sendRequest() {
+    // Implement your request handling logic here
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Request sent with calculated value: \$$_calculatedValue')),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +59,13 @@ class _RequestPageState extends State<RequestPage> {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
 
+            const SizedBox(height: 20), // Spacing
+
+            // Send Request Button
+            ElevatedButton(
+              onPressed: _sendRequest,
+              child: const Text('Send Request'),
+            ),
           ],
         ),
       ),
