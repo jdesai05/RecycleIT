@@ -57,5 +57,5 @@ This project is licensed under the **MIT License**.
 
 ## Contact
 For any inquiries, feel free to reach out:
-- **Email**: your-email@example.com
-- **GitHub**: [yourusername](https://github.com/yourusername)
+- **Email**: jainildesai05@gmail.com
+- **GitHub**: [jdesai05](https://github.com/jdesai05)
